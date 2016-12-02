@@ -6,3 +6,4 @@ authors = ["maccod <maccora17@gmail.com>"]
 [dependencies]
 rand="0.3.*"
 image="*"
+num = "0.1.36"

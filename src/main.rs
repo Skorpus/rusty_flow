@@ -4,7 +4,7 @@ extern crate image;
 use std::path::Path;
 use std::fs::File;
 
-const IMAGE_SIZE: u32 = 800;
+const IMAGE_SIZE: u32 = 51;
 fn main() {
     let buffer = rusty_flow::diamond_square::construct(IMAGE_SIZE);
     let buffer = rusty_flow::diamond_square::normalize_pixel_map(buffer);
@@ -12,7 +12,8 @@ fn main() {
     let mut img_buf = image::ImageBuffer::new(IMAGE_SIZE as u32, IMAGE_SIZE as u32);
 
     for (x, y, pixel) in img_buf.enumerate_pixels_mut() {
-        *pixel = image::Luma([buffer.get_pixel(x, y) as u8]);
+        let value: u8 = buffer.get_pixel(x, y);
+        *pixel = image::Luma([value]);
     }
 
     // let mut i = 0;
